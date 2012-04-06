@@ -1,0 +1,53 @@
+commit d6ad1880add8655935d5f36929533b911914bb20
+Author: Laura <lauraperezfelipe@gmail.com>
+Date:   Wed Apr 4 21:11:29 2012 +0100
+
+    Subidas about contact home siguiente paso el 3.3.3
+
+commit a5b88d0ed57157ed2b1b9d672a0ec0d1e4bd396a
+Author: Laura <lauraperezfelipe@gmail.com>
+Date:   Wed Apr 4 19:47:10 2012 +0100
+
+    hecho red y comobando green about
+
+commit 122baac25317a5430b0d9b3e19ee33f4488ba37e
+Author: Laura <lauraperezfelipe@gmail.com>
+Date:   Tue Apr 3 21:43:48 2012 +0100
+
+    tdd spork, empiezo con el red el siguiente paso
+
+commit 4624032e705a765c18a0001ce5f0e1e7b810bf26
+Author: Laura <lauraperezfelipe@gmail.com>
+Date:   Tue Apr 3 13:09:15 2012 +0100
+
+    añadi ficheros sueltos de vistas que no habia puesto
+
+commit 0510622b88da4788740040cebfec1b13b7ea9642
+Author: Laura <lauraperezfelipe@gmail.com>
+Date:   Tue Apr 3 00:47:30 2012 +0100
+
+    el fallo estaba en gemfile sql3 que es la version 1.3.5
+
+commit bc84b2d8de44565a00b9114a1442d15e33631634
+Author: Laura <lauraperezfelipe@gmail.com>
+Date:   Mon Apr 2 22:17:51 2012 +0100
+
+    Borre el hello.html
+
+commit 3a63259a3778dcb79935281f961cae0f83ab7ea7
+Author: Laura <lauraperezfelipe@gmail.com>
+Date:   Mon Apr 2 22:15:21 2012 +0100
+
+    Añadi el html estatico hello
+
+commit d5cdb9c15369eb4746e074699aad2b12087e3af9
+Author: Laura <lauraperezfelipe@gmail.com>
+Date:   Mon Apr 2 18:49:29 2012 +0100
+
+    Improved the README
+
+commit f0780518ed827f724c3319ed83610995abffabb3
+Author: Laura <lauraperezfelipe@gmail.com>
+Date:   Mon Apr 2 18:38:25 2012 +0100
+
+    Initial commit
