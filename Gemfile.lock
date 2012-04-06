@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    ZenTest (4.7.0)
     actionmailer (3.2.2)
       actionpack (= 3.2.2)
       mail (~> 2.4.0)
@@ -29,6 +30,12 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
+    autotest (4.4.6)
+      ZenTest (>= 4.4.1)
+    autotest-notification (2.3.4)
+      autotest-standalone (~> 4.5)
+    autotest-rails-pure (4.1.2)
+    autotest-standalone (4.5.9)
     builder (3.0.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -124,6 +131,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autotest
+  autotest-notification
+  autotest-rails-pure
   coffee-rails (~> 3.2.1)
   jquery-rails
   pg
