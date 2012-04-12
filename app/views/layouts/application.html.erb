@@ -3,10 +3,32 @@
 	<head>
 		<title><%= title %></title>
 		<%= csrf_meta_tag %>
-		<%= stylesheet_link_tag '/stylesheets/blueprint/screen', :media => 'screen' %>
-		<%= stylesheet_link_tag '/stylesheets/blueprint/print', :media => 'print' %>
+				<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<![endif]-->
+		<!--media: "all"-->
+		<%= stylesheet_link_tag	'/stylesheets/blueprint/screen', :media => 'screen' %>  
+		<%= stylesheet_link_tag	'/stylesheets/blueprint/screen', :media => 'print' %>
+		<!--[if lt IE 8]><%= stylesheet_link_tag '/stylesheets/blueprint/ie' %><![endif]-->
+		<%= stylesheet_link_tag '/stylesheets/custom', :media => 'screen' %>
+		
+
 	</head>
 	<body>
-		<%= yield %>
+		<div class="container">
+			<header>
+				<%= image_tag("/images/logo.png", :alt => "Sample App", :class => "round") %>
+				<nav class ="round">
+					<ul>
+						<li><%= link_to "Home",		'#' %></li>
+						<li><%= link_to "Help",		'#' %></li>
+						<li><%= link_to "Sign in",	'#' %></li>
+					</ul>
+				</nav>
+			</header>
+			<section class="round">
+				<%= yield %>
+			</section>
+		</div>
 	</body>
 </html>
