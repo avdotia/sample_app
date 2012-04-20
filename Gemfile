@@ -6,6 +6,7 @@ gem 'rails', '3.2.2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3', '1.3.5'
+gem 'gravatar_image_tag'
 
 group :development do
   gem 'rspec-rails', '2.6.1'
@@ -19,6 +20,7 @@ group :test do
   gem 'autotest'
   gem 'autotest-rails-pure'
   gem 'autotest-notification'
+  gem 'factory_girl_rails'
   # gem 'autotest-fsevent'
   # gem 'autotest-growl'
 end
