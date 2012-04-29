@@ -30,11 +30,58 @@ class User < ActiveRecord::Base
     # Compare encrpted_password with the encrypted version of
     # submitted_password.
   end
+  
+  ## EJERCICIO 1 ##
+  # Copy each of the variants of the authenticate method from Listing 7.27 
+  # through Listing 7.31 into your User model, and verify that they are 
+  # correct by running your test suite.
+  
+  # 7.27 FUNCIONA!! The authenticate method with User in place of self.
+ # def User.authenticate(email, submitted_password)
+ #   user = find_by_email(email)
+ #   return nil if user.nil?
+ #   return user if user.has_password?(submitted_password)
+ # end
+  # 7.28 FUNCIONA!! The authenticate method with an explicit third return.
+ # def self.authenticate(email, submitted_password)
+ #   user = find_by_email(email)
+ #   return nil if user.nil?
+ #   return user if user.has_password?(submitted_password)
+ #   return nil
+ # end
+ 
+  #7.29 FUNCIONA!! The authenticate method using an if statement.
+ # def self.authenticate(email, submitted_password)
+ #   user = find_by_email(email)
+ #   if user.nil?
+ #     nil
+ #   elsif user.has_password?(submitted_password)
+ #     user
+ #   else
+ #     nil
+ #   end
+ # end
+  
+  #7.30 FUNCIONA!! The authenticate method using an if statement and 
+  # an implicit return.
+ # def self.authenticate(email, submitted_password)
+ #   user = find_by_email(email)
+ #   if user.nil?
+ #     nil
+ #   elsif user.has_password?(submitted_password)
+ #     user
+ #   end
+ # end
+  #7.31 FUNCIONA!! The authenticate method using the ternary operator.
   def self.authenticate(email, submitted_password)
     user = find_by_email(email)
-    return nil if user.nil?
-    return user if user.has_password?(submitted_password)
+    user && user.has_password?(submitted_password) ? user : nil
   end
+#  def self.authenticate(email, submitted_password)
+#    user = find_by_email(email)
+#    return nil if user.nil?
+#    return user if user.has_password?(submitted_password)
+#  end
   private
     def encrypt_password
       self.salt = make_salt unless has_password?(password)
