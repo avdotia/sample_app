@@ -56,6 +56,6 @@ class UsersController < ApplicationController
       redirect_to(root_path) unless current_user?(@user)
     end
     def admin_user
-      redirect_to(root_path) unless current_user.admin?
+      redirect_to(root_path) unless current_user.try(:admin?)
     end
 end
