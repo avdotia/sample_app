@@ -29,6 +29,20 @@ describe UsersController do
         get :index
         response.should have_selector("title", :content => "All users")
       end
+      it "should have delete links for admins" do
+        @user.toggle!(:admin)
+        other_user = User.all.second
+        get :index
+        response.should have_selector('a', :href => user_path(other_user),
+                                           :content => "delete")
+      end
+      it "should not have delete links non-admins" do
+        other_user = User.all.second
+        get :index
+        response.should_not have_selector('a', :href => user_path(other_user),
+                                               :content => "delete")
+      end
+
       it "should have an element for each user" do
         get :index
         @users[0..2].each do |user|
@@ -262,9 +276,15 @@ describe UsersController do
           delete :destroy, :id => @user
         end.should change(User, :count).by(-1)
       end
+
       it "should redirect to the users page" do
         delete :destroy, :id => @user
         response.should redirect_to(users_path)
+      end
+      it "should not be able to destroy admin user" do
+        lambda do
+          delete :destroy, :id => @admin
+        end.should_not change(User, :count)
       end
     end
   end
