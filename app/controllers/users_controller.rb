@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(:page => params[:page])
     @title = @user.name
   end
   def new
@@ -54,12 +55,12 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
   private
-    def authenticate
-      deny_access unless signed_in?
+ #   def authenticate
+ #     deny_access unless signed_in?
 ## By default, before filters apply to every action in a controller, so here 
 ## we restrict the filter to act only on the :edit and :update actions by 
 ## passing the :only options hash.
-    end
+  #  end
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
