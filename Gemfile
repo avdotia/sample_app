@@ -28,7 +28,8 @@ group :test do
 end
 
 
-group :production do 
+group :production do
+  gem 'therubyracer' 
   gem "pg" 
   end
 
