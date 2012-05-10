@@ -1,9 +1,29 @@
+<script type="text/javascript">
+<!--
+ 
+$('#micropost_content').live('keyup keydown', function(e) {
+  var maxLen = 140;
+  var left = maxLen - $(this).val().length;
+  $('#countdown').html(left);
+ 
+  $('#countdown').css('color', (left < 1) ? 'red' : 'lightgrey');
+
+  
+});
+//--> 
+</script>
 <%= form_for @micropost do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
+
+    
+<div class="cha_le">Character lefts: <span class="countdown" id="countdown">140</span></div>
   <div class="field">
-    <%= f.text_area :content %>
+
+  	    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
   </div>
+
   <div class="actions">
     <%= f.submit "Submit" %>
+    
   </div>
 <% end %>

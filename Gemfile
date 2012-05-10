@@ -9,6 +9,7 @@ gem 'sqlite3', '1.3.5'
 gem 'gravatar_image_tag'
 gem 'will_paginate'
 gem 'faker'
+gem 'twitter-bootstrap-rails'
 
 group :development do
   gem 'rspec-rails', '2.6.1'
