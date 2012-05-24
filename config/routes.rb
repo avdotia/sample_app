@@ -1,6 +1,13 @@
 SampleApp::Application.routes.draw do
   ##get "sessions/new"
   resources :users
+  resources :users do
+    member do
+   #collection do
+     #get :following tambien sirve con el collection
+      get :following, :followers
+    end
+  end
 
   
   
@@ -10,7 +17,7 @@ SampleApp::Application.routes.draw do
 #  end
   resources :microposts, :only => [:create, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :microposts, :only => [:create, :destroy]
+  resources :relationships, :only => [:create, :destroy]
  # get "users/new"
   resources :users do 
    resources :microposts
