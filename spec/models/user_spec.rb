@@ -37,9 +37,8 @@ describe User do
   it "should reject duplicate usernames" do
     #Put a user with given name into the database.
     upcased_name = @attr[:name].upcase
-    User.create!(@attr.merge(:name => upcased_name))
-    user_with_duplicate_name = User.new(@attr)
-    user_with_duplicate_name.should_not be_valid
+user_with_duplicate_name = User.new(@attr.merge(:name => upcased_name))
+    user_with_duplicate_name.should be_valid
   end
   ###fin
   
