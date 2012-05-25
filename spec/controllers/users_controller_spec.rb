@@ -243,7 +243,7 @@ describe UsersController do
     end
     describe "for signed-in users" do
       before(:each) do
-        wrong_user = Factory(:user, :email => "user@example.net")
+        wrong_user = Factory(:user, :email => "user@example.net", :name => "pichu")
         test_sign_in(wrong_user)
       end
       it "should require matching users for 'edit'" do
@@ -275,7 +275,7 @@ describe UsersController do
     end
     describe "as an admin user" do
       before(:each) do
-        @admin = Factory(:user, :email => "admin@example.com", :admin => true)
+        @admin = Factory(:user, :email => "admin@example.com", :admin => true, :name => "administrador")
         test_sign_in(@admin)
       end
       it "should destroy the user" do
@@ -309,7 +309,7 @@ describe UsersController do
     describe "when signed in" do
       before(:each) do
         @user = test_sign_in(Factory(:user))
-        @other_user = Factory(:user, :email => Factory.next(:email))
+        @other_user = Factory(:user, :email => Factory.next(:email), :name => Factory.next(:name))
         @user.follow!(@other_user)
       end
       it "should show user following" do

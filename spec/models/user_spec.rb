@@ -31,6 +31,18 @@ describe User do
     no_email_user = User.new(@attr.merge(:email => ""))
     no_email_user.should_not be_valid
   end
+  
+  ##REPLIES
+  ##El name es unico para despues poder hacer los @replies bien
+  it "should reject duplicate usernames" do
+    #Put a user with given name into the database.
+    upcased_name = @attr[:name].upcase
+    User.create!(@attr.merge(:name => upcased_name))
+    user_with_duplicate_name = User.new(@attr)
+    user_with_duplicate_name.should_not be_valid
+  end
+  ###fin
+  
   it "should reject names that are too long" do
     long_name = "a" * 51
     long_name_user = User.new(@attr.merge(:name => long_name))
