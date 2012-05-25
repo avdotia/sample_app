@@ -34,12 +34,19 @@ describe User do
   
   ##REPLIES
   ##El name es unico para despues poder hacer los @replies bien
-  it "should reject duplicate usernames" do
+  it "should reject duplicate usernames upcase" do
     #Put a user with given name into the database.
     upcased_name = @attr[:name].upcase
-user_with_duplicate_name = User.new(@attr.merge(:name => upcased_name))
-    user_with_duplicate_name.should be_valid
+    User.create!(@attr.merge(:name => upcased_name))
+    user_with_duplicate_name = User.new(@attr)
+    user_with_duplicate_name.should_not be_valid
   end
+    it "should reject duplicate name addresses" do
+      # Put a user with given email address into the database.
+      User.create!(@attr)
+      user_with_duplicate_name = User.new(@attr)
+      user_with_duplicate_name.should_not be_valid
+    end
   ###fin
   
   it "should reject names that are too long" do
