@@ -26,6 +26,11 @@ describe Relationship do
     it "should have the right followed user" do
       @relationship.followed.should == @followed
     end
+    it "should destroy associated relationships" do
+      Relationship.find_by_id(@relationship.id) == @relationship.id
+      @relationship.destroy
+      Relationship.find_by_id(@relationship.id).should be_nil
+    end
   end
   describe "validations" do
     it "should require a follower_id" do
@@ -37,4 +42,5 @@ describe Relationship do
       @relationship.should_not be_valid
     end
   end
+
 end

@@ -94,6 +94,16 @@ describe UsersController do
       response.should have_selector("span.content", :content => mp1.content)
       response.should have_selector("span.content", :content => mp2.content)
     end
+    it "should have the right follower/following counts stats" do
+
+      @other_user = Factory(:user, :email => Factory.next(:email), :name => Factory.next(:name))
+      @user.follow!(@other_user)
+
+      get :show, :id => @user
+    #  response.should have_selector("a[href=?]", followers_user_path(@user), /1 followers/)
+      assert_select("a[href=?]", followers_user_path(@user), /0 followers/)
+      assert_select("a[href=?]", following_user_path(@user), /1 following/)
+    end
   end
 
   describe "GET 'new'" do

@@ -43,7 +43,7 @@ describe "Users" do
         response.should have_selector("div.flash.error", :content => "Invalid")
       end
     end
-    describe "success" do
+    describe "success" do      
       it "should sign a user in and out" do
         user = Factory(:user)
         visit signin_path
@@ -56,4 +56,5 @@ describe "Users" do
       end
     end
   end
+  
 end
